@@ -1,0 +1,175 @@
+@media (min-width: 1200px) {
+    .container{
+        max-width: 1970px;
+    }
+}
+.navbar {
+  position: static;
+}
+
+.navbar-static-top.navbar-inverse {
+  background-color: #ffffff;
+  border-color: transparent;
+}
+
+.navbar-static-top .navbar-header {
+  padding-top: 5px;
+}
+
+.navbar-static-top.navbar .menu-bar > .navbar-nav > li > a {
+  /*font-family: "Segoe UI Semibold", "Helvetica Neue", Helvetica, Arial, sans-serif; */
+  font-family: "Segoe UI" !important;
+  font-size: 1em;
+  /*font-weight: bold;*/
+  /*color:black;*/
+  color: #666 !important;
+  font-weight: normal !important;
+}
+/* */
+.dropdown-toggle1:active,
+.open .dropdown-toggle1 {
+  background: #fff !important;
+  color: #000 !important;
+}
+
+.navbar-custom {
+  background-color: #0078d7;
+  color: #ffffff;
+  border-radius: 0;
+}
+.navbar-brand {
+  padding-top: 200px;
+}
+
+.navbar-custom .navbar-nav > li > a {
+  color: #fff;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.navbar-custom .navbar-nav > .active > a,
+.navbar-nav > .active > a:hover,
+.navbar-nav > .active > a:focus {
+  background-color: #0078d7;
+}
+
+.navbar-custom .navbar-nav > li > a:hover,
+.nav > li > a:focus,
+.navbar-custom .navbar-nav .open > a {
+  background-color: #0467aa;
+}
+
+.navbar-custom .navbar-nav .dropdown-menu {
+  background-color: #0078d7;
+  /*padding-left:10px; 
+     padding-right:10px; 
+     padding-top:10px; 
+     padding-bottom:10px;*/ /*test*/
+}
+/*test start*/
+.navbar-static-top.navbar {
+  min-height: 61.5px !important;
+}
+ul#profileId {
+  margin-top: 2.5px !important;
+}
+ul#dashboardId {
+  min-width: 154px !important;
+  margin-top: 0px !important;
+  margin-left: 0px !important;
+  padding: 0px 0 !important;
+}
+/*test end*/
+.navbar-custom .navbar-nav .dropdown-menu > li > a {
+  color: #fff;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.navbar-custom .navbar-nav .dropdown-menu > li > a:hover,
+.navbar-custom .navbar-nav .dropdown-menu > li > a:focus {
+  color: #fff;
+  background-color: #002050;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+
+.navbar-custom .navbar-brand {
+  position: relative;
+  bottom: 8px;
+  margin-top: 2px;
+  color: #eeeeee;
+  font-size: 1.9em;
+}
+/*test*/
+.navbar-brand {
+  padding: 12.5px 10px 0px 10px !important;
+}
+.navbar-custom .navbar-toggle {
+  background-color: #eeeeee;
+}
+.navbar-custom .icon-bar {
+  background-color: #0078d7;
+}
+
+/*.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus{
+    background-color: #0467aa !important;
+  } */
+ul#dashboardId > li > a:hover,
+ul#dashboardId > li > a:focus {
+  background-color: #0467aa !important;
+}
+
+ul#profileId > li > a:hover {
+  background-color: white !important;
+}
+// MyMatter Feedback statrt
+.body {
+  font-size: 14px;
+}
+.fa {
+  text-shadow: none;
+  margin-top: -5px;
+}
+.fa-smile {
+  position: relative;
+}
+.fa-smile:before {
+  content: "\f111";
+  color: #f1c40f;
+  padding-left: 0px;
+}
+.fa-smile:after {
+  left: 0;
+  position: absolute;
+  content: "\f118";
+  padding-left: 0px;
+  color: black;
+}
+.fa-frown-o {
+  position: relative;
+}
+.fa-frown-o:before {
+  content: "\f111";
+  color: #f1c40f;
+  padding-left: 0px;
+}
+.fa-frown-o:after {
+  right: 0;
+  position: absolute;
+  content: "\f119";
+  padding-left: 20px;
+  color: black;
+}
+.smile-frown-color {
+  font-family: "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  line-height: 1.1;
+  color: #ffffff;
+  font-size: 14px !important;
+  display: none;
+}

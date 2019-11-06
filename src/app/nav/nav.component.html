@@ -1,0 +1,62 @@
+<nav class="navbar navbar-expand-lg navbar-custom">
+  <div class="container">
+    <a class="navbar-brand" href="#">MyMatters</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Dashboard
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a routerLink="/matter" class="dropdown-item" href="#">Matter</a>
+            <a routerLink="/matter_revision" class="dropdown-item" href="#">RFQ</a>
+            <a routerLink="/rfq" class="dropdown-item" href="#">Matter Revision</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/new_matter_proposal" class="nav-link" href="#">New Matter Proposal</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/request_for_quote" class="nav-link" href="#">Request For Quote</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/revise_add" class="nav-link" href="#">Revise Matter Budget / Add Firm</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/get_help" class="nav-link" href="#">Get Help</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#"
+            ><i class="fa fa-smile" style="font-size:24px;" id="smile"></i
+          ></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#"
+            ><i class="fa fa-frown-o" style="font-size:24px;" id="frown"></i
+          ></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<router-outlet></router-outlet>
