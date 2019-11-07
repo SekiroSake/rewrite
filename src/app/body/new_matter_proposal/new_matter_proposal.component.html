@@ -1,3 +1,186 @@
-<p>
-  new_matter_proposal works!
-</p>
+<div class="container" id="containerDiv">
+  <div class="page-heading">
+    <p style="font-family: Segoe UI; padding-bottom:20px">
+      <b>Matter Proposal</b><br />
+      This form helps you to select segmented law firms<br />
+      and submit matter request for specific work<br />
+    </p>
+    <div class="matter-table">
+      <div class="table-title" tabindex="0" title="Click to collapse or expand">
+        Matter Information<img
+          style="float: right;"
+          alt="CollapseImage"
+          src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAArElEQVQ4T+3SoQoCQRAG4O8Qq8Vg8Q0Eq9kHEIOPaTFo9AnMms1azCIiC7dwHHe7J1wSN+6yHzP/TKHnU/Ts+R1wjRcOuYi6tBywXQmtsE+hOTBgWwxL5IlNCk2BEXtgiQGOGKXQNrCOncsK5zm0CWzDYnRJtA7msCxaBbtiSTSCIfATpuUAYma5tYvtX7HAu1rhBGNcckrtfYYb7uE+t4df2n/w68AaPvQ+lA+eJicValFKQwAAAABJRU5ErkJggg=="
+        />
+      </div>
+      <div class="border-top my-3"></div>
+      <div class="row">
+        <div class="col">
+          <div class="gridcell">
+            <div class="celltitle">
+              Requestor <span style="color:#a94442">*</span>
+            </div>
+            <div class="input-group mb-3">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="requestor"
+                aria-label="requestor"
+                aria-describedby="basic-addon2"
+              />
+              <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2"
+                  ><i class="fa fa-times" aria-hidden="true"></i
+                ></span>
+              </div>
+              <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2"
+                  ><i class="fa fa-search" aria-hidden="true"></i
+                ></span>
+              </div>
+            </div>
+          </div>
+          <div class="gridcell">
+            <div class="celltitle">
+              Matter Name <span style="color:#a94442">*</span>
+            </div>
+            <div class="input-group mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Matter Name"
+                  aria-label="MatterName"
+                  aria-describedby="basic-addon2"
+                />
+              </div>
+          </div>
+          <div class="gridcell">
+            <div class="celltitle">
+              Start Date <span style="color:#a94442">*</span>
+            </div>
+            <div class="input-group mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  aria-label="startdate"
+                  aria-describedby="basic-addon2"
+                />
+                <div class="input-group-append">
+                  <span class="input-group-text" id="basic-addon2"
+                    ><i class="icon-calendar fa fa-calendar"></i
+                  ></span>
+                </div>
+              </div>
+          </div>
+          <div class="gridcell">
+            <div class="celltitle">
+              Description & Scope <span style="color:#a94442">*</span>
+            </div>
+            <textarea rows="4" cols="20" id="description" class="textarea form-control " spellcheck="false"></textarea>
+          </div>
+        </div>
+        <div class="col">
+          <div class="gridcell">
+            <div class="celltitle">
+              Responsible Professional <span style="color:#a94442">*</span>
+            </div>
+            <div class="input-group mb-3">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Responsible Professional"
+                aria-label="ResponsibleProfessional"
+                aria-describedby="basic-addon2"
+              />
+              <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2"
+                  ><i class="fa fa-times" aria-hidden="true"></i
+                ></span>
+              </div>
+              <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2"
+                  ><i class="fa fa-search" aria-hidden="true"></i
+                ></span>
+              </div>
+            </div>
+          </div>
+          <div class="gridcell">
+            <div class="celltitle">
+              Practice Group <span style="color:#a94442">*</span>
+            </div>
+            <div class="input-group mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Practice Group"
+                  aria-label="PracticeGroup"
+                  aria-describedby="basic-addon2"
+                />
+                <div class="input-group-append">
+                  <span class="input-group-text" id="basic-addon2"
+                    ><i class="fa fa-times" aria-hidden="true"></i
+                  ></span>
+                </div>
+                <div class="input-group-append">
+                  <span class="input-group-text" id="basic-addon2"
+                    ><i class="fa fa-search" aria-hidden="true"></i
+                  ></span>
+                </div>
+              </div>
+          </div>
+          <div class="gridcell">
+            <div class="celltitle">
+              End Date <span style="color:#a94442">*</span>
+            </div>
+            <div class="input-group mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  aria-label="enddate"
+                  aria-describedby="basic-addon2"
+                />
+                <div class="input-group-append">
+                  <span class="input-group-text" id="basic-addon2"
+                    ><i class="icon-calendar fa fa-calendar"></i
+                  ></span>
+                </div>
+              </div>
+          </div>
+          <div class="gridcell">
+            <div class="celltitle">
+              Will the matter budget exceed $100K ?
+              <span style="color:#a94442">*</span>
+            </div>
+            <span id="lfe_willthematterbudgetexceed100k" class="boolean-radio " data-required="true"><input id="lfe_willthematterbudgetexceed100k_0" type="radio" value="0" checked="checked" required=""><label for="lfe_willthematterbudgetexceed100k_0"><span class="sr-only">Will the matter budget exceed $100K ? </span>No </label>  &nbsp; <input id="lfe_willthematterbudgetexceed100k_1" type="radio" value="1" required=""><label for="lfe_willthematterbudgetexceed100k_1"><span class="sr-only">Will the matter budget exceed $100K ? </span>Yes</label></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="matter-table">
+      <div class="table-title" tabindex="0" title="Click to collapse or expand">
+        Firm Recommendation<img
+          style="float: right;"
+          alt="CollapseImage"
+          src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAArElEQVQ4T+3SoQoCQRAG4O8Qq8Vg8Q0Eq9kHEIOPaTFo9AnMms1azCIiC7dwHHe7J1wSN+6yHzP/TKHnU/Ts+R1wjRcOuYi6tBywXQmtsE+hOTBgWwxL5IlNCk2BEXtgiQGOGKXQNrCOncsK5zm0CWzDYnRJtA7msCxaBbtiSTSCIfATpuUAYma5tYvtX7HAu1rhBGNcckrtfYYb7uE+t4df2n/w68AaPvQ+lA+eJicValFKQwAAAABJRU5ErkJggg=="
+        />
+      </div>
+      <div class="border-top my-3"></div>
+      <div class="row">
+        <div class="col">
+          1 of 4
+        </div>
+        <div class="col">
+          2 of 4
+        </div>
+        <div class="col">
+          3 of 4
+        </div>
+        <div class="col">
+          4 of 4
+        </div>
+      </div>
+      <div class="border-top my-3"></div>
+    </div>
+    <input type="button" value="Next" id="InsertButton" class="submit-btn form-action-container-left btn btn-primary pull-right">
+  </div>
+</div>
