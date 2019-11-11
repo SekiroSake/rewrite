@@ -5,6 +5,7 @@
       This form helps you to select segmented law firms<br />
       and submit matter request for specific work<br />
     </p>
+    <form>
     <div class="matter-table">
       <div class="table-title" tabindex="0" title="Click to collapse or expand">
         Matter Information<img
@@ -20,6 +21,7 @@
             <div class="celltitle">
               Requestor <span style="color:#a94442">*</span>
             </div>
+            <div class="form-group">
             <div class="input-group mb-3">
               <input
                 type="text"
@@ -27,6 +29,7 @@
                 placeholder="requestor"
                 aria-label="requestor"
                 aria-describedby="basic-addon2"
+                required
               />
               <div class="input-group-append">
                 <span class="input-group-text" id="basic-addon2"
@@ -40,43 +43,52 @@
               </div>
             </div>
           </div>
+          </div>
           <div class="gridcell">
             <div class="celltitle">
               Matter Name <span style="color:#a94442">*</span>
             </div>
             <div class="input-group mb-3">
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Matter Name"
-                  aria-label="MatterName"
-                  aria-describedby="basic-addon2"
-                />
-              </div>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Matter Name"
+                aria-label="MatterName"
+                aria-describedby="basic-addon2"
+              />
+            </div>
           </div>
           <div class="gridcell">
             <div class="celltitle">
               Start Date <span style="color:#a94442">*</span>
             </div>
             <div class="input-group mb-3">
-                <input
-                  type="text"
-                  class="form-control"
-                  aria-label="startdate"
-                  aria-describedby="basic-addon2"
-                />
-                <div class="input-group-append">
-                  <span class="input-group-text" id="basic-addon2"
-                    ><i class="icon-calendar fa fa-calendar"></i
-                  ></span>
-                </div>
+              <input
+                class="form-control"
+                placeholder="yyyy-mm-dd"
+                name="dp"
+                [(ngModel)]="startDatemodel"
+                ngbDatepicker
+                #d1="ngbDatepicker"
+              />
+              <div class="input-group-append">
+                <span class="input-group-text" (click)="d1.toggle()"
+                  ><i class="icon-calendar fa fa-calendar"></i
+                ></span>
               </div>
+            </div>
           </div>
           <div class="gridcell">
             <div class="celltitle">
               Description & Scope <span style="color:#a94442">*</span>
             </div>
-            <textarea rows="4" cols="20" id="description" class="textarea form-control " spellcheck="false"></textarea>
+            <textarea
+              rows="4"
+              cols="20"
+              id="description"
+              class="textarea form-control "
+              spellcheck="false"
+            ></textarea>
           </div>
         </div>
         <div class="col">
@@ -109,49 +121,77 @@
               Practice Group <span style="color:#a94442">*</span>
             </div>
             <div class="input-group mb-3">
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Practice Group"
-                  aria-label="PracticeGroup"
-                  aria-describedby="basic-addon2"
-                />
-                <div class="input-group-append">
-                  <span class="input-group-text" id="basic-addon2"
-                    ><i class="fa fa-times" aria-hidden="true"></i
-                  ></span>
-                </div>
-                <div class="input-group-append">
-                  <span class="input-group-text" id="basic-addon2"
-                    ><i class="fa fa-search" aria-hidden="true"></i
-                  ></span>
-                </div>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Practice Group"
+                aria-label="PracticeGroup"
+                aria-describedby="basic-addon2"
+              />
+              <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2"
+                  ><i class="fa fa-times" aria-hidden="true"></i
+                ></span>
               </div>
+              <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2"
+                  ><i class="fa fa-search" aria-hidden="true"></i
+                ></span>
+              </div>
+            </div>
           </div>
           <div class="gridcell">
             <div class="celltitle">
               End Date <span style="color:#a94442">*</span>
             </div>
             <div class="input-group mb-3">
-                <input
-                  type="text"
-                  class="form-control"
-                  aria-label="enddate"
-                  aria-describedby="basic-addon2"
-                />
-                <div class="input-group-append">
-                  <span class="input-group-text" id="basic-addon2"
-                    ><i class="icon-calendar fa fa-calendar"></i
-                  ></span>
-                </div>
+              <input
+                class="form-control"
+                placeholder="yyyy-mm-dd"
+                name="dp"
+                required [(ngModel)] = "matterModel.lfeEndDate" name="lfeEndDate"
+                ngbDatepicker
+                #d2="ngbDatepicker"
+              />
+              <div class="input-group-append">
+                <span class="input-group-text" (click)="d2.toggle()"
+                  ><i class="icon-calendar fa fa-calendar"></i
+                ></span>
               </div>
+            </div>
           </div>
           <div class="gridcell">
             <div class="celltitle">
               Will the matter budget exceed $100K ?
               <span style="color:#a94442">*</span>
             </div>
-            <span id="lfe_willthematterbudgetexceed100k" class="boolean-radio " data-required="true"><input id="lfe_willthematterbudgetexceed100k_0" type="radio" value="0" checked="checked" required=""><label for="lfe_willthematterbudgetexceed100k_0"><span class="sr-only">Will the matter budget exceed $100K ? </span>No </label>  &nbsp; <input id="lfe_willthematterbudgetexceed100k_1" type="radio" value="1" required=""><label for="lfe_willthematterbudgetexceed100k_1"><span class="sr-only">Will the matter budget exceed $100K ? </span>Yes</label></span>
+            <span
+              id="lfe_willthematterbudgetexceed100k"
+              class="boolean-radio "
+              data-required="true"
+              ><input
+                id="lfe_willthematterbudgetexceed100k_0"
+                type="radio"
+                value="0"
+                checked="checked"
+                required=""
+              /><label for="lfe_willthematterbudgetexceed100k_0"
+                ><span class="sr-only"
+                  >Will the matter budget exceed $100K ? </span
+                >No
+              </label>
+              &nbsp;
+              <input
+                id="lfe_willthematterbudgetexceed100k_1"
+                type="radio"
+                value="1"
+                required=""
+              /><label for="lfe_willthematterbudgetexceed100k_1"
+                ><span class="sr-only"
+                  >Will the matter budget exceed $100K ? </span
+                >Yes</label
+              ></span
+            >
           </div>
         </div>
       </div>
@@ -172,22 +212,21 @@
 
             </div> -->
             <div class="form-group">
-              <label for="sel1" class="celltitle">Firm Country<span style="color:#a94442">*</span></label>
-              <select class="form-control" id="sel1">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
+              <label for="firm_country" class="celltitle"
+                >Firm Country<span style="color:#a94442">*</span></label
+              >
+              <select class="form-control" id="firm_country" required [(ngModel)] = "matterModel.firmCountry" name="firmCountry" >
+                <option *ngFor="let firmCountry of firmCountries" [value]="firmCountry">{{firmCountry}}</option>
               </select>
             </div>
           </div>
         </div>
         <div class="col">
-            <div class="gridcell">
-          <div class="celltitle">
-            Work Area <span style="color:#a94442">*</span>
-          </div>
-          <div class="input-group mb-3">
+          <div class="gridcell">
+            <div class="celltitle">
+              Work Area <span style="color:#a94442">*</span>
+            </div>
+            <div class="input-group mb-3">
               <input
                 type="text"
                 class="form-control"
@@ -204,11 +243,11 @@
           </div>
         </div>
         <div class="col">
-            <div class="gridcell">
-          <div class="celltitle">
-            Work Area Detail <span style="color:#a94442">*</span>
-          </div>
-          <div class="input-group mb-3">
+          <div class="gridcell">
+            <div class="celltitle">
+              Work Area Detail <span style="color:#a94442">*</span>
+            </div>
+            <div class="input-group mb-3">
               <input
                 type="text"
                 class="form-control"
@@ -222,17 +261,16 @@
                 ></span>
               </div>
             </div>
-            </div>
+          </div>
         </div>
         <div class="col">
           <div class="gridcell">
             <div class="form-group">
-              <label for="sel1" class="celltitle">Matter Tier<span style="color:#a94442">*</span></label>
-              <select class="form-control" id="sel1">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
+              <label for="matter_tier" class="celltitle"
+                >Matter Tier<span style="color:#a94442">*</span></label
+              >
+              <select class="form-control" id="matter_tier" required [(ngModel)] = "matterModel.matterTier" name="matterTier">
+                <option *ngFor="let matterTier of matterTiers" [value]="matterTier">{{matterTier}}</option>
               </select>
             </div>
           </div>
@@ -242,9 +280,10 @@
       <!-- <input type="button" value="Next" id="InsertButton" class="submit-btn form-action-container-left btn btn-primary pull-right"> -->
     </div>
     <div class="text-right">
-        <button type="button" class="btn btn-primary">Next</button>
+      <button type="submit" class="btn btn-primary">Next</button>
     </div>
+  </form>
+  For Demo Only:  {{diagnostic}}
   </div>
   <!-- <button type="button" class="btn btn-primary pull-right">Next</button> -->
 </div>
-
