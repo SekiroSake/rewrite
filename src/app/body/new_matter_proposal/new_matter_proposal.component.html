@@ -1,11 +1,11 @@
 <div class="container" id="containerDiv">
-  <div class="page-heading">
+  <div *ngIf="submitted==false" class="page-heading">
     <p style="font-family: Segoe UI; padding-bottom:20px">
       <b>Matter Proposal</b><br />
       This form helps you to select segmented law firms<br />
       and submit matter request for specific work<br />
     </p>
-    <form>
+    <form [formGroup]="matterForm" (ngSubmit)="createMatter()">
     <div class="matter-table">
       <div class="table-title" tabindex="0" title="Click to collapse or expand">
         Matter Information<img
@@ -29,7 +29,8 @@
                 placeholder="requestor"
                 aria-label="requestor"
                 aria-describedby="basic-addon2"
-                required
+                value="Hang Wang"
+                readonly
               />
               <div class="input-group-append">
                 <span class="input-group-text" id="basic-addon2"
@@ -55,8 +56,11 @@
                 placeholder="Matter Name"
                 aria-label="MatterName"
                 aria-describedby="basic-addon2"
+                formControlName="title"
+                #spy
               />
             </div>
+            <!-- <br>TODO: remove this: {{spy.className}} -->
           </div>
           <div class="gridcell">
             <div class="celltitle">
@@ -67,9 +71,10 @@
                 class="form-control"
                 placeholder="yyyy-mm-dd"
                 name="dp"
-                [(ngModel)]="startDatemodel"
+                formControlName="lfeStartDate"
                 ngbDatepicker
                 #d1="ngbDatepicker"
+                [ngClass]="{'is-invalid': matterForm.hasError('mismatch')}"
               />
               <div class="input-group-append">
                 <span class="input-group-text" (click)="d1.toggle()"
@@ -83,12 +88,19 @@
               Description & Scope <span style="color:#a94442">*</span>
             </div>
             <textarea
+              [ngClass]="{'is-invalid': matterForm.get('description').errors
+                && matterForm.get('description').touched}"
               rows="4"
               cols="20"
               id="description"
-              class="textarea form-control "
+              class="textarea form-control"
               spellcheck="false"
+              formControlName="description"
             ></textarea>
+            <div class="invalid-feedback" *ngIf=" matterForm.get('description').hasError('minlength')
+            && matterForm.get('description').touched">Please input at least 10 characters</div>
+            <div class="invalid-feedback" *ngIf=" matterForm.get('description').hasError('required')
+            && matterForm.get('description').touched">Description is required</div>
           </div>
         </div>
         <div class="col">
@@ -103,6 +115,8 @@
                 placeholder="Responsible Professional"
                 aria-label="ResponsibleProfessional"
                 aria-describedby="basic-addon2"
+                value="Hang Wang"
+                readonly
               />
               <div class="input-group-append">
                 <span class="input-group-text" id="basic-addon2"
@@ -127,6 +141,8 @@
                 placeholder="Practice Group"
                 aria-label="PracticeGroup"
                 aria-describedby="basic-addon2"
+                value="AI&R, CSEO"
+                readonly
               />
               <div class="input-group-append">
                 <span class="input-group-text" id="basic-addon2"
@@ -149,15 +165,17 @@
                 class="form-control"
                 placeholder="yyyy-mm-dd"
                 name="dp"
-                required [(ngModel)] = "matterModel.lfeEndDate" name="lfeEndDate"
+                formControlName="lfeEndDate"
                 ngbDatepicker
                 #d2="ngbDatepicker"
+                [ngClass]="{'is-invalid': matterForm.hasError('mismatch')}"
               />
               <div class="input-group-append">
                 <span class="input-group-text" (click)="d2.toggle()"
                   ><i class="icon-calendar fa fa-calendar"></i
                 ></span>
               </div>
+              <div class="invalid-feedback" *ngIf="matterForm.hasError('mismatch')" >End date must be after start date!</div>
             </div>
           </div>
           <div class="gridcell">
@@ -165,33 +183,15 @@
               Will the matter budget exceed $100K ?
               <span style="color:#a94442">*</span>
             </div>
-            <span
-              id="lfe_willthematterbudgetexceed100k"
-              class="boolean-radio "
-              data-required="true"
-              ><input
-                id="lfe_willthematterbudgetexceed100k_0"
-                type="radio"
-                value="0"
-                checked="checked"
-                required=""
-              /><label for="lfe_willthematterbudgetexceed100k_0"
-                ><span class="sr-only"
-                  >Will the matter budget exceed $100K ? </span
-                >No
+            <div class="form-group">
+              <label class="radio-inline">
+                <input class="mr-1" type="radio" value="no" formControlName="exceed100k"> No
               </label>
-              &nbsp;
-              <input
-                id="lfe_willthematterbudgetexceed100k_1"
-                type="radio"
-                value="1"
-                required=""
-              /><label for="lfe_willthematterbudgetexceed100k_1"
-                ><span class="sr-only"
-                  >Will the matter budget exceed $100K ? </span
-                >Yes</label
-              ></span
-            >
+              <label class="radio-inline ml-3">
+                <input class="mr-1" type="radio" value="yes" formControlName="exceed100k"> Yes
+              </label>             
+            </div>
+            
           </div>
         </div>
       </div>
@@ -215,7 +215,7 @@
               <label for="firm_country" class="celltitle"
                 >Firm Country<span style="color:#a94442">*</span></label
               >
-              <select class="form-control" id="firm_country" required [(ngModel)] = "matterModel.firmCountry" name="firmCountry" >
+              <select class="form-control" id="firm_country" name="firmCountry" >
                 <option *ngFor="let firmCountry of firmCountries" [value]="firmCountry">{{firmCountry}}</option>
               </select>
             </div>
@@ -269,7 +269,7 @@
               <label for="matter_tier" class="celltitle"
                 >Matter Tier<span style="color:#a94442">*</span></label
               >
-              <select class="form-control" id="matter_tier" required [(ngModel)] = "matterModel.matterTier" name="matterTier">
+              <select class="form-control" id="matter_tier" formControlName="matterTier">
                 <option *ngFor="let matterTier of matterTiers" [value]="matterTier">{{matterTier}}</option>
               </select>
             </div>
@@ -283,7 +283,13 @@
       <button type="submit" class="btn btn-primary">Next</button>
     </div>
   </form>
-  For Demo Only:  {{diagnostic}}
+  <p>Demo Only:  {{diagnostic}}</p>
+  <p>Status: {{matterForm.status | json}}</p> 
   </div>
   <!-- <button type="button" class="btn btn-primary pull-right">Next</button> -->
+  <div *ngIf="submitted==true" class="page-heading">
+    <div class="alert alert-success" role="alert">
+      Matter Created Successfully!
+    </div>
+  </div>
 </div>
