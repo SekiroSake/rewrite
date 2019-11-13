@@ -18,6 +18,8 @@ import { Get_helpComponent } from './body/get_help/get_help.component';
 import { MatterComponent } from './body/dashboard/matter/matter.component';
 import { Matter_revisionComponent } from './body/dashboard/matter_revision/matter_revision.component';
 import { RfqComponent } from './body/dashboard/rfq/rfq.component';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
    declarations: [
@@ -40,7 +42,9 @@ import { RfqComponent } from './body/dashboard/rfq/rfq.component';
       AppRoutingModule,
       FormsModule,
       ReactiveFormsModule,
-      NgbModule
+      NgbModule,
+      BsDatepickerModule.forRoot(),
+      BrowserAnimationsModule
    ],
    providers: [],
    bootstrap: [

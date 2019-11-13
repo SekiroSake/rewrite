@@ -287,9 +287,13 @@
   <p>Status: {{matterForm.status | json}}</p> 
   </div>
   <!-- <button type="button" class="btn btn-primary pull-right">Next</button> -->
-  <div *ngIf="submitted==true" class="page-heading">
+  <div *ngIf="submitted==true" class="page-loading">
+    <div class="load-text">Matter Creation in Progress ...</div>
+    <span class="loader"><span class="loader-inner"></span></span>
+  </div>
+  <!-- <div *ngIf="submitted==true" class="page-heading">
     <div class="alert alert-success" role="alert">
       Matter Created Successfully!
     </div>
-  </div>
+  </div> -->
 </div>

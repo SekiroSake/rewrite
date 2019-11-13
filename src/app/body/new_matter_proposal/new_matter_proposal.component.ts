@@ -45,6 +45,13 @@ export class New_matter_proposalComponent implements OnInit {
   }
 
   createMatter() {
-    console.log(this.matterForm.value);
+    this.submitted = true;
+    this.matterForm.value.lfeStartDate=this.stringifyDate(this.matterForm.value.lfeStartDate);
+    this.matterForm.value.lfeEndDate=this.stringifyDate(this.matterForm.value.lfeEndDate);
+    alert(JSON.stringify(this.matterForm.value));
+  }
+
+  stringifyDate(date): string{
+    return date.year + '-' + date.month + '-' + date.day;
   }
 }
