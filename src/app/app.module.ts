@@ -20,6 +20,7 @@ import { Matter_revisionComponent } from './body/dashboard/matter_revision/matte
 import { RfqComponent } from './body/dashboard/rfq/rfq.component';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
    declarations: [
@@ -44,7 +45,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       ReactiveFormsModule,
       NgbModule,
       BsDatepickerModule.forRoot(),
-      BrowserAnimationsModule
+      BrowserAnimationsModule,
+      HttpClientModule
    ],
    providers: [],
    bootstrap: [
