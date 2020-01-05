@@ -16,7 +16,7 @@ export class New_matter_proposalComponent implements OnInit {
   endDatemodel: NgbDateStruct;
   startDate: {year: number, month: number, day: number};
   endDate: {year: number, month: number, day: number};
-  firmCountries = ['', 'United State',
+  firmCountries = ['', 'United States',
   'Afghanistan', 'Åland Islands'];
   matterTiers = ['', 'N/A',
   'Tier 1', 'Tier 2', 'Tier 3'];
@@ -57,11 +57,11 @@ export class New_matter_proposalComponent implements OnInit {
     //   alert(JSON.stringify(data));
     // });
     this.creteMatterModel();
-    this.submitted = true;
     this.loading = true;
     this.matter_creation_service.createMatter(this.matterModel)
     .subscribe((data: any) => {
       this.matterid = data;
+      this.submitted = true;
       this.loading = false;
     });
   }
